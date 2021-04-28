@@ -65,9 +65,12 @@ class SaleReport(models.Model):
             sum((l.price_unit * l.discount * l.qty / 100.0 / CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END)) as discount_amount,
             NULL as order_id
         '''
-
-        for field in fields.keys():
-            select_ += ', NULL AS %s' % (field)
+        
+        for field in fields:
+            if field != 'margin':
+                select_ += ', NULL AS %s' % field
+            else:
+                select_ += ", SUM(l.margin / CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END) AS margin"
 
         from_ = '''
             pos_order_line l
