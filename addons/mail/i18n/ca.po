@@ -15,6 +15,7 @@
 # Arnau Ros, 2020
 # Susanna Pujol, 2020
 # Carles Antoli <carlesantoli@hotmail.com>, 2021
+# Pere Martínez, 2021
 # jabelchi, 2021
 # 
 msgid ""
@@ -1350,7 +1351,7 @@ msgstr "Empreses"
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
 #, python-format
 msgid "Compose Email"
-msgstr "Compondre correu electrònic"
+msgstr "Redactar correu electrònic"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__composition_mode
@@ -2963,7 +2964,7 @@ msgstr "És una notificació"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_notification__is_read
 msgid "Is Read"
-msgstr "És llegit"
+msgstr "Està llegit"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__is_subscribed

@@ -15067,7 +15067,7 @@ msgstr "Akcja startowa"
 #. module: base
 #: model:ir.actions.act_url,name:base.action_open_website
 msgid "Home Menu"
-msgstr ""
+msgstr "Menu główne"
 
 #. module: base
 #: model:res.country,name:base.hn
@@ -16068,6 +16068,12 @@ msgstr ""
 #, python-format
 msgid "Invalid model name %r in action definition."
 msgstr "Niepoprawna nazwa modelu %r w definicji akcji."
+
+#. module: base
+#: code:addons/base/models/ir_actions.py:611
+#, python-format
+msgid "many2many fields cannot be evaluated by reference"
+msgstr ""
 
 #. module: base
 #: code:addons/template_inheritance.py:0
@@ -27382,7 +27388,7 @@ msgstr "Yodlee Finance"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_simple_form
 msgid "You are inviting a new user."
-msgstr ""
+msgstr "Zapraszasz nowego użytkownika."
 
 #. module: base
 #: code:addons/base/models/ir_module.py:0

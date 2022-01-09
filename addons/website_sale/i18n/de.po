@@ -299,11 +299,11 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.terms
 msgid ""
-"<small class=\"text-muted float-right\">Source: https://termsfeed.com/blog"
-"/sample-terms-and-conditions-template</small>"
+"<small class=\"text-muted float-right\">Source: "
+"https://termsfeed.com/blog/sample-terms-and-conditions-template</small>"
 msgstr ""
-"<small class=\"text-muted float-right\">Quelle: https://termsfeed.com/blog"
-"/sample-terms-and-conditions-template</small>"
+"<small class=\"text-muted float-right\">Quelle: "
+"https://termsfeed.com/blog/sample-terms-and-conditions-template</small>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cart
@@ -597,6 +597,8 @@ msgid ""
 "Accessories show up when the customer reviews the cart before payment "
 "(cross-sell strategy)."
 msgstr ""
+"Zubehör wird angezeigt, wenn der Kunde den Warenkorb vor der Bezahlung "
+"überprüft (Cross-Selling)."
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_product__accessory_product_ids
@@ -1093,8 +1095,8 @@ msgstr "Kunden"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
-msgid "DHL"
-msgstr "DHL"
+msgid "DHL Express Connector"
+msgstr "DHL Express Konnektor"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_website__currency_id
@@ -1394,7 +1396,7 @@ msgstr "HTTP Routing"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_image_view_kanban
 msgid "Huge file size. The image should be optimized/reduced."
-msgstr ""
+msgstr "Sehr große Datei. Das Bild sollte optimiert/verkleinert werden."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_sale_note
@@ -1718,7 +1720,7 @@ msgstr "Kein Produkt definiert"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.products
 msgid "No product defined in category \""
-msgstr ""
+msgstr "Kein Produkt definiert in der Kategorie \""
 
 #. module: website_sale
 #: model_terms:ir.actions.act_window,help:website_sale.website_sale_visitor_product_action
@@ -1733,7 +1735,7 @@ msgstr "Keine Treffer"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.products
 msgid "No results for \""
-msgstr ""
+msgstr "Keine Ergebnisse für \""
 
 #. module: website_sale
 #. openerp-web
@@ -1770,7 +1772,7 @@ msgstr "Anzahl Stunden, nach denen ein Einkaufskorb als verlassen gilt."
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_website__shop_ppg
 msgid "Number of products in the grid on the shop"
-msgstr ""
+msgstr "Anzahl der Produkte im Raster des Shops"
 
 #. module: website_sale
 #. openerp-web
@@ -1795,7 +1797,7 @@ msgstr "Online-Verkäufe"
 #. module: website_sale
 #: model:ir.actions.act_window,name:website_sale.sale_report_action_dashboard
 msgid "Online Sales Analysis"
-msgstr ""
+msgstr "Online-Verkaufsanalyse"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_sale_order__only_services
@@ -1828,18 +1830,20 @@ msgid ""
 "Optimization required! Reduce the image size or increase your compression "
 "settings."
 msgstr ""
+"Optimierung erforderlich! Verringern Sie die Bildgröße oder erhöhen Sie Ihre"
+" Komprimierungseinstellungen."
 
 #. module: website_sale
 #: code:addons/website_sale/models/sale_order.py:0
 #, python-format
 msgid "Option for: %s"
-msgstr ""
+msgstr "Option für: %s"
 
 #. module: website_sale
 #: code:addons/website_sale/models/sale_order.py:0
 #, python-format
 msgid "Option: %s"
-msgstr ""
+msgstr "Option: %s"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
@@ -2716,6 +2720,8 @@ msgid ""
 "Suggest alternatives to your customer (upsell strategy). Those products show"
 " up on the product page."
 msgstr ""
+"Schlagen Sie Ihrem Kunden Alternativen vor (Upselling-Strategie). Diese "
+"werden auf der Produktseite angezeigt."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.suggested_products_list
@@ -2898,7 +2904,7 @@ msgstr "Dieser Promo-Code ist nicht verfügbar."
 #. module: website_sale
 #: model:ir.model.fields,help:website_sale.field_website_visitor__product_count
 msgid "Total number of product viewed"
-msgstr ""
+msgstr "Gesamtzahl der angesehenen Produkte"
 
 #. module: website_sale
 #: model:ir.model.fields,help:website_sale.field_website_visitor__visitor_product_count
@@ -2986,7 +2992,7 @@ msgstr "Besuchte Seiten"
 #: model:ir.model.fields,field_description:website_sale.field_website_visitor__product_ids
 #: model_terms:ir.ui.view,arch_db:website_sale.website_sale_visitor_view_kanban
 msgid "Visited Products"
-msgstr ""
+msgstr "Angesehene Produkte"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.website_sale_visitor_page_view_graph
@@ -3303,7 +3309,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.products
 msgid "in category \""
-msgstr ""
+msgstr "in der Kategorie \""
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cart_popover

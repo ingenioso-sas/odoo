@@ -5930,8 +5930,8 @@ msgstr ""
 #, python-format
 msgid "Unable to post message, please configure the sender's email address."
 msgstr ""
-"Die Nachricht kann nicht gepostet werden, bitte konfigurieren Sie die E"
-"-Mail-Adresse des Absenders."
+"Die Nachricht kann nicht gepostet werden, bitte konfigurieren Sie die "
+"E-Mail-Adresse des Absenders."
 
 #. module: mail
 #. openerp-web
@@ -6255,7 +6255,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/thread.xml:0
 #, python-format
 msgid "Viewer"
-msgstr ""
+msgstr "Betrachter"
 
 #. module: mail
 #. openerp-web

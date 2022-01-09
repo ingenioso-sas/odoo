@@ -2864,7 +2864,7 @@ msgstr "ผู้ใช้งาน"
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_type__valid
 msgid "Valid"
-msgstr ""
+msgstr "ถูกต้อง"
 
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_form_manager
@@ -3072,7 +3072,7 @@ msgstr ""
 #: code:addons/hr_holidays/models/hr_leave_allocation.py:0
 #, python-format
 msgid "hours"
-msgstr ""
+msgstr "ชั่วโมง"
 
 #. module: hr_holidays
 #. openerp-web
