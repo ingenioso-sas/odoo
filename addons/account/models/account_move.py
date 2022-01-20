@@ -348,6 +348,7 @@ class AccountMove(models.Model):
         if self.is_sale_document(include_receipts=True) and self.partner_id:
             self.invoice_payment_term_id = self.partner_id.property_payment_term_id or self.invoice_payment_term_id
             new_term_account = self.partner_id.commercial_partner_id.property_account_receivable_id
+            self.narration = self.company_id.with_context(lang=self.partner_id.lang).invoice_terms
         elif self.is_purchase_document(include_receipts=True) and self.partner_id:
             self.invoice_payment_term_id = self.partner_id.property_supplier_payment_term_id or self.invoice_payment_term_id
             new_term_account = self.partner_id.commercial_partner_id.property_account_payable_id
@@ -785,6 +786,7 @@ class AccountMove(models.Model):
                     'name': _('%s (rounding)') % biggest_tax_line.name,
                     'account_id': biggest_tax_line.account_id.id,
                     'tax_repartition_line_id': biggest_tax_line.tax_repartition_line_id.id,
+                    'tag_ids': [(6, 0, biggest_tax_line.tag_ids.ids)],
                     'tax_exigible': biggest_tax_line.tax_exigible,
                     'exclude_from_invoice_tab': True,
                 })
@@ -2652,7 +2654,7 @@ class AccountMoveLine(models.Model):
         help="The move of this entry line.")
     move_name = fields.Char(string='Number', related='move_id.name', store=True, index=True)
     date = fields.Date(related='move_id.date', store=True, readonly=True, index=True, copy=False, group_operator='min')
-    ref = fields.Char(related='move_id.ref', store=True, copy=False, index=True, readonly=False)
+    ref = fields.Char(related='move_id.ref', store=True, copy=False, index=True, readonly=True)
     parent_state = fields.Selection(related='move_id.state', store=True, readonly=True)
     journal_id = fields.Many2one(related='move_id.journal_id', store=True, index=True, copy=False)
     company_id = fields.Many2one(related='move_id.company_id', store=True, readonly=True)
