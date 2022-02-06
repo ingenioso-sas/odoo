@@ -451,6 +451,7 @@ class AccountMove(models.Model):
             'analytic_account_id': tax_line.tax_line_id.analytic and tax_line.analytic_account_id.id,
             'tax_ids': [(6, 0, tax_line.tax_ids.ids)],
             'tag_ids': [(6, 0, tax_line.tag_ids.ids)],
+            'partner_id': tax_line.partner_id.id,
         }
 
     @api.model
@@ -471,6 +472,7 @@ class AccountMove(models.Model):
             'analytic_account_id': tax_vals['analytic'] and base_line.analytic_account_id.id,
             'tax_ids': [(6, 0, tax_vals['tax_ids'])],
             'tag_ids': [(6, 0, tax_vals['tag_ids'])],
+            'partner_id': base_line.partner_id.id,
         }
 
     def _get_tax_force_sign(self):
@@ -667,7 +669,6 @@ class AccountMove(models.Model):
                     **to_write_on_line,
                     'name': tax.name,
                     'move_id': self.id,
-                    'partner_id': line.partner_id.id,
                     'company_id': line.company_id.id,
                     'company_currency_id': line.company_currency_id.id,
                     'quantity': 1.0,
@@ -1314,7 +1315,7 @@ class AccountMove(models.Model):
             pay_term_line_ids = move.line_ids.filtered(lambda line: line.account_id.user_type_id.type in ('receivable', 'payable'))
 
             domain = [('account_id', 'in', pay_term_line_ids.mapped('account_id').ids),
-                      '|', ('move_id.state', '=', 'posted'), '&', ('move_id.state', '=', 'draft'), ('journal_id.post_at', '=', 'bank_rec'),
+                      '|', ('parent_state', '=', 'posted'), '&', ('parent_state', '=', 'draft'), ('journal_id.post_at', '=', 'bank_rec'),
                       ('partner_id', '=', move.commercial_partner_id.id),
                       ('reconciled', '=', False), '|', ('amount_residual', '!=', 0.0),
                       ('amount_residual_currency', '!=', 0.0)]
@@ -1615,7 +1616,7 @@ class AccountMove(models.Model):
         self.ensure_one()
 
         line_currency = self.currency_id if self.currency_id != self.company_id.currency_id else False
-        for line in self.line_ids:
+        for line in self.line_ids.filtered(lambda l: not l.display_type):
             # Do something only on invoice lines.
             if line.exclude_from_invoice_tab:
                 continue
@@ -1623,7 +1624,7 @@ class AccountMove(models.Model):
             # Shortcut to load the demo data.
             # Doing line.account_id triggers a default_get(['account_id']) that could returns a result.
             # A section / note must not have an account_id set.
-            if not line._cache.get('account_id') and not line.display_type and not line._origin:
+            if not line._cache.get('account_id') and not line._origin:
                 line.account_id = line._get_computed_account()
                 if not line.account_id:
                     if self.is_sale_document(include_receipts=True):
@@ -3462,7 +3463,7 @@ class AccountMoveLine(models.Model):
         return self.tax_ids or self.tax_line_id or self.tag_ids.filtered(lambda x: x.applicability == "taxes")
 
     def _check_tax_lock_date(self):
-        for line in self.filtered(lambda l: l.move_id.state == 'posted'):
+        for line in self.filtered(lambda l: l.parent_state == 'posted'):
             move = line.move_id
             if move.company_id.tax_lock_date and move.date <= move.company_id.tax_lock_date and line._affect_tax_report():
                 raise UserError(_("The operation is refused as it would impact an already issued tax statement. "
@@ -4316,7 +4317,7 @@ class AccountMoveLine(models.Model):
 
         state = context.get('state')
         if state and state.lower() != 'all':
-            domain += [('move_id.state', '=', state)]
+            domain += [('parent_state', '=', state)]
 
         if context.get('company_id'):
             domain += [('company_id', '=', context['company_id'])]
@@ -4350,7 +4351,7 @@ class AccountMoveLine(models.Model):
         tables = ''
         if domain:
             domain.append(('display_type', 'not in', ('line_section', 'line_note')))
-            domain.append(('move_id.state', '!=', 'cancel'))
+            domain.append(('parent_state', '!=', 'cancel'))
 
             query = self._where_calc(domain)
 
