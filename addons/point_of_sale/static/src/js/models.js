@@ -416,7 +416,7 @@ exports.PosModel = Backbone.Model.extend({
         },
     },{
         model:  'pos.payment.method',
-        fields: ['name', 'is_cash_count', 'use_payment_terminal'],
+        fields: ['name', 'is_cash_count', 'use_payment_terminal','split_transactions', 'type'],
         domain: function(self, tmp) {
             return [['id', 'in', tmp.payment_method_ids]];
         },
@@ -2224,6 +2224,13 @@ exports.Paymentline = Backbone.Model.extend({
             this.pos.send_current_order_to_customer_facing_display();
         }
         this.trigger('change',this);
+    },
+    /**
+     * Check if paymentline is done.
+     * Paymentline is done if there is no payment status or the payment status is done.
+     */
+    is_done: function() {
+        return this.get_payment_status() ? this.get_payment_status() === 'done' || this.get_payment_status() === 'reversed': true;
     },
     // returns the amount of money on this paymentline
     get_amount: function(){

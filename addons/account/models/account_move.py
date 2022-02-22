@@ -98,7 +98,7 @@ class AccountMove(models.Model):
     ref = fields.Char(string='Reference', copy=False)
     narration = fields.Text(string='Terms and Conditions')
     state = fields.Selection(selection=[
-            ('draft', 'Draft'),
+            ('draft', '*-'),
             ('posted', 'Posted'),
             ('cancel', 'Cancelled')
         ], string='Status', required=True, readonly=True, copy=False, tracking=True,

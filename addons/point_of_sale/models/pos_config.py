@@ -216,6 +216,7 @@ class PosConfig(models.Model):
     company_has_template = fields.Boolean(string="Company has chart of accounts", compute="_compute_company_has_template")
     current_user_id = fields.Many2one('res.users', string='Current Session Responsible', compute='_compute_current_session_user')
     other_devices = fields.Boolean(string="Other Devices", help="Connect devices to your PoS without an IoT Box.")
+    cash_rounding = fields.Boolean(string="Cash Rounding")
 
     @api.depends('use_pricelist', 'available_pricelist_ids')
     def _compute_allowed_pricelist_ids(self):

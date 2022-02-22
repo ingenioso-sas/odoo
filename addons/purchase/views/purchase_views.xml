@@ -537,7 +537,7 @@
         </record>
 
         <record id="purchase_order_action_generic" model="ir.actions.act_window">
-            <field name="name">Purchase Orders</field>
+            <field name="name">Purchase venta 1 Orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.order</field>
             <field name="domain">[]</field>
@@ -568,7 +568,7 @@
             sequence="0"/>
 
         <record id="purchase_form_action" model="ir.actions.act_window">
-            <field name="name">Purchase Orders</field>
+            <field name="name">Purchase venta 2 Orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.order</field>
             <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
