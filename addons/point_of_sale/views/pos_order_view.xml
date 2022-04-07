@@ -91,10 +91,6 @@
                     </page>
                     <page name="extra" string="Extra Info">
                         <group >
-                            <group string="Inventory">
-                                <field name="location_id" widget="selection" groups="stock.group_stock_multi_locations"/>
-                                <field name="picking_id" readonly="1"/>
-                            </group>
                             <group
                                 string="Accounting"
                                 groups="account.group_account_manager"

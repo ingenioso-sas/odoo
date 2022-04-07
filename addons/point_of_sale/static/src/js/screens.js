@@ -2283,13 +2283,52 @@ var PaymentScreenWidget = ScreenWidget.extend({
     order_is_valid: function(force_validation) {
         var self = this;
         var order = this.pos.get_order();
+        var paymentlines = order.get_paymentlines()
+        var splitPayments = paymentlines.filter(payment => payment.payment_method.split_transactions)
 
         // FIXME: this check is there because the backend is unable to
         // process empty orders. This is not the right place to fix it.
-        if (order.get_orderlines().length === 0) {
+        if (order.get_orderlines().length === 0 && order.is_to_invoice()) {
             this.gui.show_popup('error',{
                 'title': _t('Empty Order'),
                 'body':  _t('There must be at least one product in your order before it can be validated'),
+            });
+            return false;
+        }
+        if ((order.is_to_invoice() || splitPayments.length ) && !order.get_client()) {
+            var title = _t('Please select the Customer');
+            var description = _t('You need to select the customer before you can invoice an order.');
+            if(splitPayments.length ){
+                var paymentMethod = splitPayments[0].payment_method
+                description = _.str.sprintf(_t('Se requiere al cliente para el metodo de pago: %s.'), paymentMethod.name)
+            }
+            this.gui.show_popup('confirm', {
+                'title': title,
+                'body': description,
+                confirm: function () {
+                    this.gui.show_screen('clientlist');
+                },
+            });
+            return false;
+        }
+        var forcevalid = force_validation
+        var totalwithtax = order.get_total_with_tax()
+        // if the change is too large, it's probably an input error, make the user confirm.
+        if ( forcevalid === 'Confirm Large Amount' && totalwithtax > 0 && (totalwithtax * 250 < order.get_total_paid())) {
+            this.gui.show_popup('confirm',{
+                title: _t('Please Confirm Large Amount'),
+                body:  _t('Are you sure that the customer wants to  pay') +
+                       ' ' +
+                       this.format_currency(order.get_total_paid()) +
+                       ' ' +
+                       _t('for an order of') +
+                       ' ' +
+                       this.format_currency(totalwithtax) +
+                       ' ' +
+                       _t('? Clicking "Confirm" will validate the payment.'),
+                confirm: function() {
+                    self.validate_order('Confirm Large Amount');
+                },
             });
             return false;
         }
@@ -2357,9 +2396,16 @@ var PaymentScreenWidget = ScreenWidget.extend({
     finalize_validation: function() {
         var self = this;
         var order = this.pos.get_order();
+        // definir facturacion automaticamente para creditos
+        var paymentlines = order.get_paymentlines()
+        var splitPayments = paymentlines.filter(payment => payment.payment_method.split_transactions)
+
+        if(splitPayments.length){
+            // facturar aquellas ventas que son a credito
+            order.set_to_invoice(true);
+        }
 
         if ((order.is_paid_with_cash() || order.get_change()) && this.pos.config.iface_cashdrawer) { 
-
                 this.pos.proxy.printer.open_cashbox();
         }
 
@@ -2432,8 +2478,17 @@ var PaymentScreenWidget = ScreenWidget.extend({
     // and complete the sale process
     validate_order: function(force_validation) {
         if (this.order_is_valid(force_validation)) {
+            var order = this.pos.get_order();
+            var paymentlines = order.get_paymentlines()
+            for (let line of paymentlines) {
+                if (!line.is_done()) order.remove_paymentline(line);
+            }
             this.finalize_validation();
         }
+        if(this.pos.config.cash_rounding){
+            // TODO: hacer algo aqui
+        }
+        // return this._super();
     },
 
     send_receipt_to_customer: function(order_server_ids) {
