@@ -29,6 +29,7 @@
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2021
 # ramiadavid, 2022
 # marcescu, 2022
+# Luis D Lafaurie, 2022
 # 
 msgid ""
 msgstr ""
@@ -36,13 +37,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 09:22+0000\n"
 "PO-Revision-Date: 2019-08-26 09:15+0000\n"
-"Last-Translator: marcescu, 2022\n"
+"Last-Translator: Luis D Lafaurie, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. module: web_editor
 #. openerp-web
@@ -91,14 +92,14 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "(ALT Tag)"
-msgstr ""
+msgstr "(Etiqueta ALT)"
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "(TITLE Tag)"
-msgstr ""
+msgstr "(Etiqueta TÍTULO)"
 
 #. module: web_editor
 #. openerp-web
@@ -367,7 +368,7 @@ msgstr "Cambiar la calidad no es compatible con imágenes de tipo"
 #: code:addons/web_editor/static/src/js/editor/summernote.js:0
 #, python-format
 msgid "Checklist"
-msgstr ""
+msgstr "Lista de verificación"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
@@ -457,7 +458,7 @@ msgstr "Creado el"
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/crop_dialog.js:0
 #, python-format
 msgid "Crop Image"
-msgstr ""
+msgstr "Recortar imagen"
 
 #. module: web_editor
 #. openerp-web

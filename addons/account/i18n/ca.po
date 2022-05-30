@@ -22,6 +22,9 @@
 # ericrolo, 2022
 # Jonatan Gk, 2022
 # jabelchi, 2022
+# marcescu, 2022
+# David Surroca, 2022
+# Óscar Fonseca <tecnico@extreme-micro.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -29,7 +32,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-01 12:20+0000\n"
 "PO-Revision-Date: 2019-08-26 09:06+0000\n"
-"Last-Translator: jabelchi, 2022\n"
+"Last-Translator: Óscar Fonseca <tecnico@extreme-micro.com>, 2022\n"
 "Language-Team: Catalan (https://www.transifex.com/odoo/teams/41243/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,6 +314,8 @@ msgid ""
 "<span attrs=\"{'invisible':[('reconciled_invoices_count','&gt;',1)]}\">Invoice</span>\n"
 "                                <span attrs=\"{'invisible':[('reconciled_invoices_count','&lt;=',1)]}\">Invoices</span>"
 msgstr ""
+"<span attrs=\"{'invisible': [('reconciled_bills_count','&gt;', 1)]}\">Factura</span>\n"
+"                                <span attrs=\"{'invisible': [('reconciled_bills_count','&lt;=', 1)]}\">Factures</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_my_invoices
@@ -350,7 +355,7 @@ msgstr ""
 msgid ""
 "<span class=\"badge badge-warning text-uppercase "
 "o_sample_data_label\">Sample data</span>"
-msgstr ""
+msgstr "Dades de mostra"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -6049,6 +6054,8 @@ msgid ""
 "Invoice and credit note repartition should have at least one tax repartition"
 " line."
 msgstr ""
+"La factura i el crèdit no haurien de tenir com a mínim una línia de "
+"repartiment d'impostos."
 
 #. module: account
 #: code:addons/account/models/account.py:0
@@ -6413,7 +6420,7 @@ msgstr "Apunts comptables"
 #. module: account
 #: model:ir.actions.act_window,name:account.action_move_line_select_tax_audit
 msgid "Journal Items for Tax Audit"
-msgstr ""
+msgstr "Elements del diari per a l'auditoria fiscal"
 
 #. module: account
 #. openerp-web
@@ -8047,7 +8054,7 @@ msgstr "Tipus de parella"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "Pay your"
-msgstr ""
+msgstr "Pagui el seu"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -8122,7 +8129,7 @@ msgstr "Diari de pagament:"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_form
 msgid "Payment Matching"
-msgstr ""
+msgstr "Coincidència de pagament"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment__payment_method_id
@@ -8295,7 +8302,7 @@ msgstr ""
 #: code:addons/account/models/account_payment.py:0
 #, python-format
 msgid "Payments without a customer can't be matched"
-msgstr ""
+msgstr "Els pagaments sense un client no es poden comparar"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_payment_term_line__value__percent
@@ -8305,7 +8312,7 @@ msgstr "Percentatge"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_accrual_accounting_wizard_form_view
 msgid "Percent (%)"
-msgstr ""
+msgstr "Percentatge (%)"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_accrual_accounting_wizard__percentage
@@ -8561,7 +8568,7 @@ msgstr ""
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "Presets config"
-msgstr ""
+msgstr "Configuració dels predefinits"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -9320,7 +9327,7 @@ msgstr "Vendes"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_invoice_tree
 msgid "Sales Person"
-msgstr ""
+msgstr "Persona de venda"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_move__type__out_receipt
@@ -9899,7 +9906,7 @@ msgstr "SungmailCity name (optional, probably does not need a translation)"
 #: code:addons/account/static/src/js/reconciliation/reconciliation_renderer.js:0
 #, python-format
 msgid "Some fields are undefined"
-msgstr ""
+msgstr "Alguns camps no estan definits"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:0
@@ -9950,7 +9957,7 @@ msgstr "Data inicial"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_fiscal_year__date_from
 msgid "Start Date, included in the fiscal year."
-msgstr ""
+msgstr "Data d'inici, inclosa a l'any fiscal."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement__balance_start
@@ -10876,7 +10883,7 @@ msgstr ""
 #: code:addons/account/static/src/js/reconciliation/reconciliation_model.js:0
 #, python-format
 msgid "The amount %s is not a valid partial amount"
-msgstr ""
+msgstr "La quantitat %s no és una quantitat parcial vàlida"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__amount_currency
@@ -11054,7 +11061,7 @@ msgstr ""
 #: code:addons/account/models/account_fiscal_year.py:0
 #, python-format
 msgid "The ending date must not be prior to the starting date."
-msgstr ""
+msgstr "La data de finalització no ha de ser anterior a la data d'inici."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_product_category__property_account_expense_categ_id
@@ -11208,9 +11215,9 @@ msgid ""
 " Please change the journal entry date or the tax lock date set in the "
 "settings (%s) to proceed."
 msgstr ""
-"L'operació s'ha rebutjat ja com podria afectar una declaració d'impostos. Si"
-" us plau, canvieu la data d'entrada del diari o la data de bloqueig "
-"d'impostos establerta als arranjaments (%s) per a continuar."
+"Es denega l'operació, ja que afectaria una declaració d'impostos ja emesa. "
+"Si us plau, canvieu la data d'entrada del diari o la data de bloqueig "
+"d'impostos establerta a la configuració (%s) per a continuar."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_tax_report_line__report_action_id
@@ -11858,7 +11865,7 @@ msgstr ""
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "To speed up reconciliation, define"
-msgstr ""
+msgstr "Per accelerar la conciliació, definiu"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
@@ -12536,7 +12543,7 @@ msgstr ""
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "Writeoff Date"
-msgstr ""
+msgstr "Data d'escriptura"
 
 #. module: account
 #: model:ir.model.constraint,message:account.constraint_account_move_line_check_credit_debit
@@ -12586,6 +12593,8 @@ msgid ""
 "You can not have an overlap between two fiscal years, please correct the "
 "start and/or end dates of your fiscal years."
 msgstr ""
+"No es pot tenir un solapament entre dos anys fiscals, si us plau corregiu "
+"les dates d'inici i/o final dels seus anys fiscals."
 
 #. module: account
 #: code:addons/account/wizard/account_accrual_accounting.py:0
@@ -13021,6 +13030,7 @@ msgstr "Té"
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "You have suspense account moves that match this invoice."
 msgstr ""
+"Teniu moviments de compte suspens que coincideixen amb aquesta factura."
 
 #. module: account
 #: code:addons/account/models/account_payment.py:0
@@ -13061,7 +13071,7 @@ msgstr "Cal afegir una línia abans de validar."
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "You reconciled"
-msgstr ""
+msgstr "Us heu reconciliat"
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -13121,7 +13131,7 @@ msgstr "Rang de codi postal fins a"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "and follow-up customers"
-msgstr ""
+msgstr "i el seguiment dels clients"
 
 #. module: account
 #. openerp-web
@@ -13189,7 +13199,7 @@ msgstr ""
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "have been reconciled automatically."
-msgstr ""
+msgstr "s'ha reconciliat automàticament."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__invoice_without_email
@@ -13245,14 +13255,14 @@ msgstr "pagat"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "reconcile"
-msgstr ""
+msgstr "reconciliar"
 
 #. module: account
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "reconciliation models"
-msgstr ""
+msgstr "models de reconciliació"
 
 #. module: account
 #. openerp-web
@@ -13273,7 +13283,7 @@ msgstr "segons per transacció."
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "statement lines"
-msgstr ""
+msgstr "línies extracte"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_move_line__tax_group_id
@@ -13305,35 +13315,35 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "to mark this invoice as paid."
-msgstr ""
+msgstr "per marcar aquesta factura com a pagada."
 
 #. module: account
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "transactions in"
-msgstr ""
+msgstr "transaccions en"
 
 #. module: account
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "unpaid invoices"
-msgstr ""
+msgstr "factures no pagades"
 
 #. module: account
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "unreconciled entries"
-msgstr ""
+msgstr "entrades no reconciliades"
 
 #. module: account
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:0
 #, python-format
 msgid "vendor bills"
-msgstr ""
+msgstr "factures del venedor"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_bank_statement_form
