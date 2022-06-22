@@ -15605,7 +15605,7 @@ msgstr "استيراد / تصدير"
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_amazon
 msgid "Import Amazon orders and sync deliveries"
-msgstr ""
+msgstr "استيراد طلبات أمازون ومزامنة التوصيلات "
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_facturx
@@ -21965,7 +21965,7 @@ msgstr "إزالة الإجراء القريني المرتبط بهذا الت�
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_renting
 msgid "Rental"
-msgstr ""
+msgstr "تأجير "
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_stock_renting
@@ -24195,7 +24195,7 @@ msgstr "كائن قاعدة البيانات التي سيُرفق به هذا �
 #. module: base
 #: model:ir.model.fields,help:base.field_res_users__company_id
 msgid "The default company for this user."
-msgstr ""
+msgstr "الشركة الافتراضية لهذا المستخدم. "
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.demo_failures_dialog
