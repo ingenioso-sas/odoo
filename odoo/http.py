@@ -192,7 +192,7 @@ class WebRequest(object):
 
     .. attribute:: params
 
-        :class:`~collections.Mapping` of request parameters, not generally
+        :class:`~collections.abc.Mapping` of request parameters, not generally
         useful as they're provided directly to the handler method as keyword
         arguments
     """
@@ -244,7 +244,7 @@ class WebRequest(object):
 
     @property
     def context(self):
-        """ :class:`~collections.Mapping` of context values for the current request """
+        """ :class:`~collections.abc.Mapping` of context values for the current request """
         if self._context is None:
             self._context = frozendict(self.session.context)
         return self._context
@@ -823,7 +823,7 @@ more details.
         :param basestring data: response body
         :param headers: HTTP headers to set on the response
         :type headers: ``[(name, value)]``
-        :param collections.Mapping cookies: cookies to set on the client
+        :param collections.abc.Mapping cookies: cookies to set on the client
         """
         response = Response(data, headers=headers)
         if cookies:
@@ -1268,12 +1268,16 @@ class DisableCacheMiddleware(object):
             req = werkzeug.wrappers.Request(environ)
             root.setup_session(req)
             if req.session and req.session.debug and not 'wkhtmltopdf' in req.headers.get('User-Agent'):
-                new_headers = [('Cache-Control', 'no-cache')]
+                cache_control_value = 'no-cache'
+                new_headers = []
 
                 for k, v in headers:
                     if k.lower() != 'cache-control':
                         new_headers.append((k, v))
+                    elif 'no-cache' not in v:
+                        cache_control_value += ', %s' % v
 
+                new_headers.append(('Cache-Control', cache_control_value))
                 start_response(status, new_headers)
             else:
                 start_response(status, headers)

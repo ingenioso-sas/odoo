@@ -22,7 +22,7 @@
 # AleEscandon <alejandra.escandon@jarsa.com.mx>, 2019
 # gabriumaa <gabriel.umana@delfixcr.com>, 2019
 # Harald Panten <harald.panten@qubiq.es>, 2019
-# Christopher Ormaza <chris.ormaza@gmail.com>, 2019
+# 3fea9b0a501d83c62ec74234fbc72e10_a827c46 <dce1956db1a05bce2aec6cc4ef975d99_318347>, 2019
 # Luis M. Ontalba <luis.martinez@tecnativa.com>, 2019
 # Carlos Eduardo Rodriguez Rossi <crodriguez@samemotion.com>, 2019
 # Antonio Trueba, 2019
@@ -41,10 +41,10 @@
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2021
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2021
 # David Vidal <david.vidal@trespinos.es>, 2021
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2021
 # Jose Carmona <jrcarmona@gmail.com>, 2021
 # marcescu, 2022
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2022
+# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -52,7 +52,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 09:21+0000\n"
 "PO-Revision-Date: 2019-08-26 09:14+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2022\n"
+"Last-Translator: Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2326,7 +2326,7 @@ msgstr "Seguidores (Canales)"
 #: model:ir.model.fields,field_description:stock.field_stock_production_lot__message_partner_ids
 #: model:ir.model.fields,field_description:stock.field_stock_scrap__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Seguidores (Empresas)"
+msgstr "Seguidores (Contactos)"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_category__removal_strategy_id
@@ -7435,6 +7435,12 @@ msgstr ""
 "No puede cambiar el tipo de producto que está actualmente reservado en un "
 "movimiento de stock. Si necesita cambiar el tipo, primero debe cancelar el "
 "movimiento de stock."
+
+#. module: stock
+#: code:addons/stock/models/product.py:0
+#, python-format
+msgid "You can not change the type of a product that was already used."
+msgstr "No puede cambiar el tipo de un producto que ya estuvo en uso."
 
 #. module: stock
 #: code:addons/stock/models/stock_move_line.py:0

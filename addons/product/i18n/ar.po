@@ -2802,7 +2802,7 @@ msgstr "لا يمكنك تغيير القيمة للقيمة %s المعينة �
 #: code:addons/product/models/product.py:0
 #, python-format
 msgid "You cannot create recursive categories."
-msgstr "لا يمكنك إنشاء فئات متكررة."
+msgstr "لا يمكنك إنشاء فئات متداخلة. "
 
 #. module: product
 #: model:ir.model.constraint,message:product.constraint_product_attribute_value_value_company_uniq
@@ -2846,6 +2846,16 @@ msgstr ""
 msgid ""
 "You cannot move the attribute %s from the product %s to the product %s."
 msgstr "لا يمكنك نقل الخاصية %s من المنتج %s إلى المنتج %s. "
+
+#. module: product
+#: code:addons/product/models/product_pricelist.py:0
+#, python-format
+msgid ""
+"You cannot disable a pricelist rule, please delete it or archive its "
+"pricelist instead."
+msgstr ""
+"لا يمكنك تعطيل قاعدة قائمة أسعار. يرجى حذفها أو أرشفة قائمة أسعارها عوضاً عن"
+" ذلك. "
 
 #. module: product
 #: code:addons/product/models/product_attribute.py:0

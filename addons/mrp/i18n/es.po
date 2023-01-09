@@ -21,9 +21,9 @@
 # Miguel Ruiz <lmiguel.gruiz@gmail.com>, 2020
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2020
 # VivianMontana23 <vivianpvm@gmail.com>, 2020
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2021
 # jabelchi, 2021
 # marcescu, 2022
+# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2022
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2022
 # 
 msgid ""
@@ -1608,7 +1608,7 @@ msgstr "Seguidores (Canales)"
 #: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__message_partner_ids
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Seguidores (Empresas)"
+msgstr "Seguidores (Contactos)"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.oee_search_view
@@ -4064,6 +4064,16 @@ msgstr ""
 "El enrutamiento contiene todos los Centros de trabajo utilizados y por "
 "cuánto tiempo. Esto creará órdenes de trabajo posteriores que alteran la "
 "ejecución de la orden de fabricación."
+
+#. module: mrp
+#: code:addons/mrp/models/mrp_unbuild.py:0
+#, python-format
+msgid ""
+"The selected serial number does not correspond to the one used in the "
+"manufacturing order, please select another one."
+msgstr ""
+"El número de serie seleccionado no corresponde con el que se utilizó en la "
+"orden de fabricación, seleccione otro."
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_bom.py:0
